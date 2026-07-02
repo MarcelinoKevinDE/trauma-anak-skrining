@@ -1,0 +1,419 @@
+/* =========================================================
+   DESIGN SYSTEM — Neubrutalism / Monochrome (Black & White)
+   Filosofi: bold, jujur, tanpa basa-basi. Border tebal,
+   hard-shadow offset, tipografi besar & berat, flat, no-gradient.
+   ========================================================= */
+
+:root {
+    --c-bg: #ffffff;
+    --c-surface: #ffffff;
+    --c-ink: #000000;
+    --c-white: #ffffff;
+    --c-muted: #4a4a4a;
+
+    --border-w: 3px;
+    --shadow-off: 6px;
+
+    --font-display: 'Archivo Black', 'Arial Black', sans-serif;
+    --font-body: 'Space Grotesk', 'Inter', sans-serif;
+
+    --radius: 0px; /* neubrutalism = tegas, tanpa lengkung */
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--c-bg);
+    color: var(--c-ink);
+    font-family: var(--font-body);
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.app-shell {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image:
+        linear-gradient(var(--c-ink) 1px, transparent 1px),
+        linear-gradient(90deg, var(--c-ink) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: -1px -1px;
+    background-color: #fafafa;
+}
+
+/* ---------- Layout containers ---------- */
+
+.minimal-container {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 56px 20px 100px;
+}
+
+.minimal-container--narrow { max-width: 620px; }
+
+.minimal-container--center {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.minimal-page-head { margin-bottom: 36px; }
+
+/* ---------- Typography ---------- */
+
+.eyebrow {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--c-ink);
+    color: var(--c-white);
+    padding: 5px 12px;
+    margin-bottom: 20px;
+}
+
+.minimal-heading {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 46px;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    margin: 0 0 20px;
+    color: var(--c-ink);
+}
+
+.minimal-heading--sm { font-size: 30px; margin-bottom: 14px; }
+.minimal-heading--xs {
+    font-size: 18px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: var(--border-w) solid var(--c-ink);
+}
+
+.minimal-subtext {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--c-muted);
+    max-width: 48ch;
+    margin: 0 0 32px;
+}
+
+.minimal-subtext--dark { margin-bottom: 0; color: var(--c-ink); }
+
+.minimal-footnote {
+    margin-top: 28px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--c-ink);
+}
+
+.minimal-disclaimer {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--c-muted);
+    text-align: center;
+    line-height: 1.7;
+    margin: 32px 0 40px;
+    border: var(--border-w) dashed var(--c-ink);
+    padding: 16px;
+    background: var(--c-white);
+}
+
+/* ---------- Cards (hard-shadow blocks) ---------- */
+
+.minimal-card {
+    background: var(--c-white);
+    border: var(--border-w) solid var(--c-ink);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-off) var(--shadow-off) 0 var(--c-ink);
+    padding: 26px;
+    margin-bottom: 28px;
+}
+
+.minimal-card--hero {
+    max-width: 580px;
+    text-align: left;
+    padding: 52px 44px;
+}
+
+/* ---------- Buttons ---------- */
+
+.minimal-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    padding: 16px 30px;
+    border-radius: var(--radius);
+    border: var(--border-w) solid var(--c-ink);
+    box-shadow: var(--shadow-off) var(--shadow-off) 0 var(--c-ink);
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.minimal-btn:active,
+.minimal-btn:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0 var(--c-ink);
+}
+
+.minimal-btn--primary { background: var(--c-ink); color: var(--c-white); }
+.minimal-btn--ghost { background: var(--c-white); color: var(--c-ink); }
+
+.minimal-btn .arrow { transition: transform 0.15s ease; }
+.minimal-btn:hover .arrow { transform: translateX(3px); }
+
+/* ---------- Quiz form ---------- */
+
+.quiz-item {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+}
+
+.quiz-item__number {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--c-white);
+    background: var(--c-ink);
+    min-width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.quiz-item__body { flex: 1; }
+
+.quiz-item__text {
+    margin: 0 0 18px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--c-ink);
+}
+
+.quiz-options {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.quiz-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 12.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--c-ink);
+    background: var(--c-white);
+    border: var(--border-w) solid var(--c-ink);
+    box-shadow: 3px 3px 0 var(--c-ink);
+    padding: 12px 6px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+.quiz-option input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.quiz-option:hover {
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0 var(--c-ink);
+}
+
+.quiz-option:has(input:checked) {
+    background: var(--c-ink);
+    color: var(--c-white);
+    transform: translate(3px, 3px);
+    box-shadow: 0 0 0 var(--c-ink);
+}
+
+.quiz-submit-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+/* ---------- Alerts ---------- */
+
+.minimal-alert {
+    background: var(--c-white);
+    border: var(--border-w) solid var(--c-ink);
+    box-shadow: var(--shadow-off) var(--shadow-off) 0 var(--c-ink);
+    padding: 14px 18px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--c-ink);
+    margin-bottom: 28px;
+}
+
+.minimal-alert--error {
+    background: var(--c-ink);
+    color: var(--c-white);
+}
+
+/* ---------- Result page ---------- */
+
+.tingkat-badge {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border: var(--border-w) solid var(--c-ink);
+    vertical-align: middle;
+    display: inline-block;
+}
+
+/* Monokrom murni: level dibedakan lewat pola, bukan warna */
+.tingkat-badge--rendah {
+    background: var(--c-white);
+    color: var(--c-ink);
+}
+.tingkat-badge--sedang {
+    background: repeating-linear-gradient(
+        45deg, var(--c-ink), var(--c-ink) 4px, var(--c-white) 4px, var(--c-white) 8px
+    );
+    color: var(--c-ink);
+    -webkit-text-stroke: 3px var(--c-white);
+    paint-order: stroke fill;
+}
+.tingkat-badge--tinggi {
+    background: var(--c-ink);
+    color: var(--c-white);
+}
+
+.score-row {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.score-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 110px;
+}
+
+.score-value {
+    font-family: var(--font-display);
+    font-size: 44px;
+    font-weight: 900;
+}
+
+.score-max { font-size: 18px; color: var(--c-muted); }
+
+.score-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--c-ink);
+    margin-top: 4px;
+}
+
+.score-bar-wrap { flex: 1; min-width: 200px; }
+
+.score-bar {
+    width: 100%;
+    height: 20px;
+    background: var(--c-white);
+    border: var(--border-w) solid var(--c-ink);
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.score-bar__fill { height: 100%; background: var(--c-ink); }
+
+/* Pola berbeda per level di dalam bar (tetap monokrom) */
+.score-bar__fill--rendah { background: var(--c-ink); }
+.score-bar__fill--sedang {
+    background: repeating-linear-gradient(
+        45deg, var(--c-ink), var(--c-ink) 5px, #808080 5px, #808080 10px
+    );
+}
+.score-bar__fill--tinggi { background: var(--c-ink); }
+
+.minimal-list {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    color: var(--c-ink);
+    font-size: 14.5px;
+    font-weight: 500;
+}
+
+.minimal-list li {
+    position: relative;
+    padding-left: 26px;
+    margin-bottom: 12px;
+}
+
+.minimal-list li::before {
+    content: "▪";
+    position: absolute;
+    left: 0;
+    font-weight: 900;
+}
+
+.minimal-list li:last-child { margin-bottom: 0; }
+
+.category-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.category-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--c-white);
+    border: var(--border-w) solid var(--c-ink);
+    box-shadow: 3px 3px 0 var(--c-ink);
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.category-chip__name { color: var(--c-muted); }
+.category-chip__score {
+    color: var(--c-white);
+    background: var(--c-ink);
+    padding: 1px 8px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 640px) {
+    .minimal-heading { font-size: 32px; }
+    .minimal-card--hero { padding: 36px 24px; }
+    .quiz-options { grid-template-columns: repeat(2, 1fr); }
+    .score-row { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .app-shell { background-size: 28px 28px; }
+}
